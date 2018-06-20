@@ -6,9 +6,7 @@ public class CustomerDTO {
 	
 	private String nome;
 	
-	private Integer age;
-	
-	private boolean active;
+	private String sobrenome;
 
 	public Long getId() {
 		return id;
@@ -26,21 +24,12 @@ public class CustomerDTO {
 		this.nome = nome;
 	}
 
-	public int getAge() {
-		return age;
+	public String getSobrenome() {
+		return sobrenome;
 	}
 
-	public void setAge(int age) {
-		this.age = age;
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
 	}
 
-	public boolean isActive() {
-		return active;
-	}
-
-	public void setActive(boolean active) {
-		this.active = active;
-	}
-	
-	
 }
