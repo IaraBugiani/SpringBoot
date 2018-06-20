@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.persistence.EntityNotFoundException;
-import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,8 +45,7 @@ public class CustomerServiceImpl implements CustomerService {
 			throw new EntityNotFoundException("Não existem dados para serem alterados!");
 		}
 			Customer dadosUpdate = mapper.toEntity(customerDTO);
-			dadosUpdate.setActive(customerDTO.isActive());
-			dadosUpdate.setAge(customerDTO.getAge());
+			dadosUpdate.setSobrenome(customerDTO.getSobrenome());
 			dadosUpdate.setNome(customerDTO.getNome());
 			
 		return mapper.toDto(repository.save(dadosUpdate));
@@ -61,6 +59,11 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public void deleteAllCustomer() {
 		repository.deleteAll();
+	}
+
+	@Override
+	public List<Customer> findByNomeContains(String nome) {
+		return repository.findByNomeContains(nome);
 	}
 
 }

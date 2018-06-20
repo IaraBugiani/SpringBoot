@@ -1,5 +1,7 @@
 package br.com.springBoot.web.rest.mapper;
 
+import java.util.List;
+
 import org.mapstruct.Mapper;
 
 import br.com.springBoot.domain.Customer;
@@ -17,4 +19,6 @@ public interface CustomerMapper  extends EntityMapper<CustomerDTO, Customer>{
         customer.setId(id);
         return customer;
     }
+
+	List<CustomerDTO> toDto(Iterable<Customer> findAll);
 }
